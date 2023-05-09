@@ -1,4 +1,4 @@
-﻿namespace MegaDesk_Herendeen
+﻿namespace MegaDesk2
 {
     partial class SearchQuotes
     {

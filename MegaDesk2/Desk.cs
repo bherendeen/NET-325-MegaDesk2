@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MegaDesk_Herendeen
+namespace MegaDesk2
 {
     public class Desk
     {

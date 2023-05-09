@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MegaDesk_Herendeen
+namespace MegaDesk2
 {
     internal static class Program
     {
