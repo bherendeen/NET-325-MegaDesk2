@@ -16,5 +16,12 @@ namespace MegaDesk2
         {
             InitializeComponent();
         }
+
+        private void searchQuote_Return_Btn_Click(object sender, EventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)Tag;
+            mainMenu.Show();
+            Close();
+        }
     }
 }

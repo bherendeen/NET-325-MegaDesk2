@@ -28,13 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.searchQuote_Return_Btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // searchQuote_Return_Btn
+            // 
+            this.searchQuote_Return_Btn.Location = new System.Drawing.Point(257, 308);
+            this.searchQuote_Return_Btn.Name = "searchQuote_Return_Btn";
+            this.searchQuote_Return_Btn.Size = new System.Drawing.Size(75, 23);
+            this.searchQuote_Return_Btn.TabIndex = 0;
+            this.searchQuote_Return_Btn.Text = "Return";
+            this.searchQuote_Return_Btn.UseVisualStyleBackColor = true;
+            this.searchQuote_Return_Btn.Click += new System.EventHandler(this.searchQuote_Return_Btn_Click);
             // 
             // SearchQuotes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.searchQuote_Return_Btn);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SearchQuotes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search Quotes";
@@ -43,5 +56,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button searchQuote_Return_Btn;
     }
 }
