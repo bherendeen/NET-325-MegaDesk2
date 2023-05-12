@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace MegaDesk2
 {
     public class DeskQuote
     {
-        // Desk variables
+        // DeskQuote variables
         public Desk desk;
         public string currentDate { get; set; }
         public string customerName { get; set; }
@@ -22,6 +23,9 @@ namespace MegaDesk2
         public string shippingType { get; set; }
         public int totalShippingCost { get; set; }
         public int totalCost { get; set; }
+
+        public string rushOrderPriceFile = "rushOrderPrices.txt";
+
 
         // -----------------------------------------------------
         // Get total surface area
@@ -111,10 +115,37 @@ namespace MegaDesk2
         }
 
         // -----------------------------------------------------
+        // Get shipping prices - rushOrderPrices.txt
+        // -----------------------------------------------------
+        public string[,] GetRushOrder()
+        {
+            string[] prices = File.ReadAllLines(rushOrderPriceFile);
+            
+            string[,] rushOrderPrices = new string[3, 3];
+            int row = 0;
+            int column = 0;
+            int priceIndex = 0;
+
+            for (; row < 3; row++)
+            {
+                for (; column < 3; column++)
+                {
+                    rushOrderPrices[row, column] = prices[priceIndex];
+                    priceIndex++;
+                }
+
+                column = 0;
+            }
+            return rushOrderPrices;
+
+        }
+
+        // -----------------------------------------------------
         // Get shipping cost
         // -----------------------------------------------------
         public int getTotalShippingCost(int shippingTypeIndex)
         {
+            string[,] rushOrderPrices = GetRushOrder();
             int shippingCost = 0;
 
             switch (shippingTypeIndex)
@@ -122,43 +153,43 @@ namespace MegaDesk2
                 case 1:
                     if (totalArea > 2000)
                     {
-                        shippingCost = 80;
+                        shippingCost = Int32.Parse(rushOrderPrices[0,2]);
                     }
                     else if (totalArea >= 1000)
                     {
-                        shippingCost = 70;
+                        shippingCost = Int32.Parse(rushOrderPrices[0, 1]);
                     } 
                     else
                     {
-                        shippingCost = 60;
+                        shippingCost = Int32.Parse(rushOrderPrices[0, 0]);
                     }
                     break;
                 case 2:
                     if (totalArea > 2000)
                     {
-                        shippingCost = 60;
+                        shippingCost = Int32.Parse(rushOrderPrices[1, 2]);
                     }
                     else if (totalArea >= 1000)
                     {
-                        shippingCost = 50;
+                        shippingCost = Int32.Parse(rushOrderPrices[1, 1]);
                     }
                     else
                     {
-                        shippingCost = 40;
+                        shippingCost = Int32.Parse(rushOrderPrices[1, 0]);
                     }
                     break;
                 case 3:
                     if (totalArea > 2000)
                     {
-                        shippingCost = 40;
+                        shippingCost = Int32.Parse(rushOrderPrices[2, 2]);
                     }
                     else if (totalArea >= 1000)
                     {
-                        shippingCost = 35;
+                        shippingCost = Int32.Parse(rushOrderPrices[2, 1]);
                     }
                     else
                     {
-                        shippingCost = 30;
+                        shippingCost = Int32.Parse(rushOrderPrices[2, 0]);
                     }
                     break;
                 default:

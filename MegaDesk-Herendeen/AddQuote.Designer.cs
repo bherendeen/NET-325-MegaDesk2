@@ -129,12 +129,6 @@
             // 
             this.materialTypeBox.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialTypeBox.FormattingEnabled = true;
-            this.materialTypeBox.Items.AddRange(new object[] {
-            "Laminate",
-            "Oak",
-            "Pine",
-            "Rosewood",
-            "Veneer"});
             this.materialTypeBox.Location = new System.Drawing.Point(199, 338);
             this.materialTypeBox.Name = "materialTypeBox";
             this.materialTypeBox.Size = new System.Drawing.Size(257, 31);

@@ -12,11 +12,14 @@ namespace MegaDesk2
 {
     public partial class AddQuote : Form
     {
+        Desk desk = new Desk();
+        DeskQuote deskQuote = new DeskQuote();
+
         public AddQuote()
         {
-            Desk desk = new Desk();
-            DeskQuote deskQuote = new DeskQuote();
             InitializeComponent();
+            List<DesktopMaterial> materials = new List<DesktopMaterial>(Enum.GetValues(typeof(DesktopMaterial)).Cast<DesktopMaterial>());
+            materialTypeBox.DataSource = materials;
             // Show current date
             currentDate.Text = deskQuote.currentDate;
 
@@ -69,7 +72,7 @@ namespace MegaDesk2
 
         private void customerNameBox_Validating(object sender, CancelEventArgs e)
         {
-            customerNameBox.BackColor = default(Color); // set backgrounf color to default
+            customerNameBox.BackColor = default(Color); // set background color to default
             string value = customerNameBox.Text; // get the value in the deskWidthBox
             validateCustomerName(value); // call validateWidth and pass the value of value
         }
@@ -126,7 +129,7 @@ namespace MegaDesk2
 
         private void deskWidthBox_Validating(object sender, CancelEventArgs e)
         {
-            deskWidthBox.BackColor = default(Color); // set backgrounf color to default
+            deskWidthBox.BackColor = default(Color); // set background color to default
             string value = deskWidthBox.Text; // get the value in the deskWidthBox
             validateWidth(value); // call validateWidth and pass the value of value
         }
@@ -202,7 +205,7 @@ namespace MegaDesk2
 
         private void deskDepthBox_Validating(object sender, CancelEventArgs e)
         {
-            deskDepthBox.BackColor = default(Color); // set backgrounf color to default
+            deskDepthBox.BackColor = default(Color); // set background color to default
             string value = deskDepthBox.Text; // get the value in the deskWidthBox
             validateDepth(value); // call validateWidth and pass the value of value
         }
@@ -229,7 +232,7 @@ namespace MegaDesk2
 
         private void numDrawersBox_Validating(object sender, CancelEventArgs e)
         {
-            numDrawersBox.BackColor = default(Color); // set backgrounf color to default
+            numDrawersBox.BackColor = default(Color); // set background color to default
             string value = numDrawersBox.Text; // get the value in the deskWidthBox
             validateNumDrawers(value); // call validateWidth and pass the value of value
         }
@@ -324,7 +327,7 @@ namespace MegaDesk2
             }
             catch (Exception ex)
             {
-                errorLabel.Text = "ERROR: Please make sure all fields are filled or selected";
+                errorLabel.Text = $"ERROR: Please make sure all fields are filled or selected. {ex.Message}";
                 errorLabel.ForeColor = Color.Tomato;
             }
         }
