@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -318,6 +320,57 @@ namespace MegaDesk2
                 deskQuote.totalShippingCost = deskQuote.getTotalShippingCost(shippingBox.SelectedIndex + 1);
 
                 deskQuote.totalCost = deskQuote.getTotalCost();
+
+                //------------------------------------------------------------------------------
+                //--Writing to Json - file 
+                //------------------------------------------------------------------------------
+
+                try
+                {
+
+                    string fileQuotes = @"quotes.json";
+
+                    List<DeskQuote> deskQuotes = new List<DeskQuote>();
+
+                    //checks if the file "quotes.json" exists in the current directory
+                    if (File.Exists(fileQuotes))
+                    {
+                        // created to read the contents of the file
+                        using (StreamReader reader = new StreamReader(fileQuotes))
+                        {
+                            //reads the quotes.json if it exists
+                            string JSONquotes = reader.ReadToEnd();
+
+                            if (JSONquotes.Length > 0)
+                            {
+                                //deserialize quotes
+                                deskQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(JSONquotes);
+                            }
+
+                        }
+                        //add quotes to list
+                        deskQuotes.Add(deskQuote);
+                    }
+
+
+                    var writeQuotes = JsonConvert.SerializeObject(deskQuotes);
+                    using (var writer = new StreamWriter(fileQuotes))
+                    {
+                        writer.Write(writeQuotes);
+                        writer.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    errorLabel.Text = "ERROR SAVING USER";
+
+                }
+
+
+                //-END JSON -------------------------------------------------------------------------------
+
+
 
                 // -- Go to another form (page)
                 DisplayQuote viewDisplayQuote = new DisplayQuote(desk, deskQuote);
