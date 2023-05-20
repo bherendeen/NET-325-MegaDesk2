@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
+using System.Runtime.CompilerServices;
 
 namespace MegaDesk2
 {
-    public class DeskQuote
+    public class DeskQuote : Desk
     {
         // DeskQuote variables
-        public Desk desk;
+        public Desk desk { get; set; }
         public string currentDate { get; set; }
         public string customerName { get; set; }
         public int totalArea { get; set; }
@@ -24,7 +26,13 @@ namespace MegaDesk2
         public int totalShippingCost { get; set; }
         public int totalCost { get; set; }
 
-        public string rushOrderPriceFile = "rushOrderPrices.txt";
+        public string rushOrderPriceFile = "C:\\Users\\foxtr\\Source\\Repos\\NET-325-MegaDesk2\\MegaDesk-Herendeen\\data\\rushOrderPrices.txt";
+
+       
+        public DeskQuote()
+        {
+             
+        }
 
 
         // -----------------------------------------------------

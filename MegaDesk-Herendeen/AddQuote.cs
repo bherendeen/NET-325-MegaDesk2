@@ -98,14 +98,16 @@ namespace MegaDesk2
                 deskWidthBox.BackColor = Color.Tomato;
                 this.ActiveControl = deskWidthBox;
 
-            } else if (!inputCheckAllNum)
+            }
+            else if (!inputCheckAllNum)
             {
                 errorLabel.Text = "ERROR: Width value must only include numaric values";
                 errorLabel.ForeColor = Color.Tomato;
                 deskWidthBox.BackColor = Color.Tomato;
                 this.ActiveControl = deskWidthBox;
 
-            } else if (inputCheckAllNum)
+            }
+            else if (inputCheckAllNum)
             {
                 int parseValue = Int32.Parse(input); // parse input from string to int 
                 bool correctValue = parseValue >= minWidth && parseValue <= maxWidth; // check parseValue if within correct rage
@@ -301,6 +303,7 @@ namespace MegaDesk2
 
             try
             {
+
                 deskQuote.currentDate = deskQuote.getCurrentDate();
 
                 deskQuote.customerName = customerNameBox.Text;
@@ -321,6 +324,8 @@ namespace MegaDesk2
 
                 deskQuote.totalCost = deskQuote.getTotalCost();
 
+                deskQuote.desk = desk;
+                
                 //------------------------------------------------------------------------------
                 //--Writing to Json - file 
                 //------------------------------------------------------------------------------
@@ -350,6 +355,7 @@ namespace MegaDesk2
                         }
                         //add quotes to list
                         deskQuotes.Add(deskQuote);
+                        
                     }
 
 

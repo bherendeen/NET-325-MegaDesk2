@@ -28,20 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.AllQuotes_ReturnBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // ViewAllQuotes
+            // dataGridView1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(794, 330);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // AllQuotes_ReturnBtn
+            // 
+            this.AllQuotes_ReturnBtn.Location = new System.Drawing.Point(350, 392);
+            this.AllQuotes_ReturnBtn.Name = "AllQuotes_ReturnBtn";
+            this.AllQuotes_ReturnBtn.Size = new System.Drawing.Size(75, 23);
+            this.AllQuotes_ReturnBtn.TabIndex = 1;
+            this.AllQuotes_ReturnBtn.Text = "Return";
+            this.AllQuotes_ReturnBtn.UseVisualStyleBackColor = true;
+            this.AllQuotes_ReturnBtn.Click += new System.EventHandler(this.AllQuotes_ReturnBtn_Click);
+            // 
+            // AllQuotes
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "ViewAllQuotes";
+            this.ClientSize = new System.Drawing.Size(807, 445);
+            this.Controls.Add(this.AllQuotes_ReturnBtn);
+            this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "AllQuotes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View All Quotes";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button AllQuotes_ReturnBtn;
     }
 }
