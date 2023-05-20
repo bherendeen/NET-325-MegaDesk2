@@ -27,6 +27,15 @@ namespace MegaDesk2
         public string rushOrderPriceFile = "rushOrderPrices.txt";
 
 
+        public float quote
+        {
+            get
+            {
+                return getTotalCost();
+            }
+        }
+
+
         // -----------------------------------------------------
         // Get total surface area
         // -----------------------------------------------------
@@ -221,3 +230,12 @@ namespace MegaDesk2
         }
     }
 }
+
+public enum RushOrderType
+{
+    none,
+    threeDay,
+    fiveDay,
+    sevenDay
+}
+
