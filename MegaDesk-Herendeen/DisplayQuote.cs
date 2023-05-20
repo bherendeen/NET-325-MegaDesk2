@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace MegaDesk2
 {
     public partial class DisplayQuote : Form
     {
+        
         public DisplayQuote(Desk desk, DeskQuote deskQuote)
         {
             InitializeComponent();
@@ -36,7 +38,7 @@ namespace MegaDesk2
             baseCost.Text = $"${Convert.ToString(deskQuote.baseCost)}";
 
             totalCost.Text = $"${Convert.ToString(deskQuote.totalCost)}";
-
+             
         }
 
         // -----------------------------------------------------

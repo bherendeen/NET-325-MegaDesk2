@@ -26,7 +26,20 @@ namespace MegaDesk2
         public int deskMaxDepth { get { return DESK_MAX_DEPTH; } }
         public int deskDrawerMin { get { return DRAWER_MIN; } }
         public int deskDrawerMax { get { return DRAWER_MAX; } }
+
+        public Desk(int width, int depth, int numDrawers, DesktopMaterial surfaceMaterial)
+        {
+            this.deskWidth = width;
+            this.deskDepth = depth;
+            this.deskNumDrawers = deskNumDrawers;
+            this.surfaceMaterial = (DesktopMaterial)surfaceMaterial;
+        }
+
+        public Desk()
+        {
+        }
     }
+
 
     // Create enumerated type named DesktopMaterial
     public enum DesktopMaterial
